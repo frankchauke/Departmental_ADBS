@@ -3,15 +3,15 @@ const sql = require('mssql');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
 
-// ✅ Serve static files (like your form) from the 'public' folder
+// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ Azure SQL Database config using environment variables
+// Azure SQL Database configuration
 const dbConfig = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -23,13 +23,13 @@ const dbConfig = {
   }
 };
 
-// ✅ POST route to receive form data and insert into SQL
+// POST route to receive form data and insert into SQL
 app.post('/submit', async (req, res) => {
   const { name, department, age } = req.body;
 
   try {
     await sql.connect(dbConfig);
-    const result = await sql.query`
+    await sql.query`
       INSERT INTO DataTable (Name, Department, Age)
       VALUES (${name}, ${department}, ${age})
     `;
@@ -40,7 +40,12 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-// ✅ Start server
-//app.listen(port, () => {
-//  console.log(`Server running on port ${port}`);
-//});
+// Serve index.html on root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
