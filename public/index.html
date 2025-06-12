@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Data Capturing Form</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <div class="form-container">
@@ -23,35 +23,6 @@
     <div id="output"></div>
   </div>
 
-  <script>
-    document.getElementById('dataForm').addEventListener('submit', async function (e) {
-      e.preventDefault(); // Prevent page refresh
-
-      const name = document.getElementById('name').value;
-      const department = document.getElementById('department').value;
-      const age = document.getElementById('age').value;
-
-      try {
-        const response = await fetch('/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, department, age })
-        });
-
-        const result = await response.json();
-        const outputDiv = document.getElementById('output');
-
-        if (response.ok) {
-          outputDiv.innerHTML = `<p style="color: green;">${result.message}</p>`;
-          document.getElementById('dataForm').reset();
-        } else {
-          outputDiv.innerHTML = `<p style="color: red;">${result.error || 'Submission failed'}</p>`;
-        }
-      } catch (error) {
-        console.error('Submission error:', error);
-        document.getElementById('output').innerHTML = `<p style="color: red;">Error submitting form.</p>`;
-      }
-    });
-  </script>
+  <script src="../script.js"></script> 
 </body>
 </html>
