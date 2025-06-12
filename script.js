@@ -1,28 +1,27 @@
-    document.getElementById('dataForm').addEventListener('submit', async function (e) {
-      e.preventDefault(); // Prevent page refresh
+document.getElementById('dataForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const department = document.getElementById('department').value;
-      const age = document.getElementById('age').value;
+  const name = document.getElementById('name').value.trim();
+  const department = document.getElementById('department').value.trim();
+  const age = document.getElementById('age').value;
 
-      try {
-        const response = await fetch('/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, department, age })
-        });
-
-        const result = await response.json();
-        const outputDiv = document.getElementById('output');
-
-        if (response.ok) {
-          outputDiv.innerHTML = `<p style="color: green;">${result.message}</p>`;
-          document.getElementById('dataForm').reset();
-        } else {
-          outputDiv.innerHTML = `<p style="color: red;">${result.error || 'Submission failed'}</p>`;
-        }
-      } catch (error) {
-        console.error('Submission error:', error);
-        document.getElementById('output').innerHTML = `<p style="color: red;">Error submitting form.</p>`;
-      }
+  try {
+    const response = await fetch('/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, department, age })
     });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      document.getElementById('output').innerText = result.message;
+      document.getElementById('dataForm').reset();
+    } else {
+      document.getElementById('output').innerText = result.error || 'Submission failed.';
+    }
+  } catch (error) {
+    console.error(error);
+    document.getElementById('output').innerText = 'Error connecting to the server.';
+  }
+});
