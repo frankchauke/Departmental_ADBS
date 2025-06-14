@@ -1,8 +1,8 @@
-body {
+body { 
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
-  background: linear-gradient(135deg, #d3bfff, #b69dfc, #a084e8); /* Stronger purple tones */
+  background: linear-gradient(to top, hsl(33, 81%, 81%), hsl(35, 100%, 64%), hsl(202, 84%, 76%)); /* Warm orange gradient */
 }
 
 /* Sidebar Styles */
