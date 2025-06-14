@@ -1,27 +1,23 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f8;
-  margin: 0; /* reset default */
-  /* Removed flex layout from body because .layout handles it */
+  margin: 0;
+  display: flex; /* Added to place sidebar and main together */
 }
 
-/* Layout Structure */
-.layout {
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 120px); /* adjust height to account for header */
-  overflow: hidden;
-}
-  
 /* Sidebar Styles */
 .sidebar {
   width: 220px;
+  height: 100vh; /* Make it full height */
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease;
-  position: relative;
+  position: fixed; /* Stick to left */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Stay above other content */
 }
 
 .sidebar.collapsed {
@@ -67,15 +63,55 @@ body {
   width: 100%;
 }
 
-/* Main content */
-.main-content {
+/* Main content area next to fixed sidebar */
+.main-content-wrapper {
+  margin-left: 220px; /* same as sidebar width */
+  width: calc(100% - 220px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.app-header {
+  background: none;
+  color: #333;
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+.header-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header-icon i {
+  font-size: 48px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Layout (holds form) */
+.layout {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f4f6f8;
   padding: 20px;
-  overflow-y: auto; /* better if content grows */
+  overflow-y: auto;
 }
 
 /* Form container */
@@ -127,14 +163,15 @@ button:hover {
 /* Responsive fix */
 @media (max-width: 600px) {
   .sidebar {
-    position: absolute;
-    z-index: 100;
+    width: 60px;
     height: 100%;
+    position: fixed;
+    z-index: 100;
   }
 
-  .main-content {
+  .main-content-wrapper {
     margin-left: 60px;
-    padding: 10px;
+    width: calc(100% - 60px);
   }
 
   .form-container {
@@ -142,36 +179,3 @@ button:hover {
     max-width: 100%;
   }
 }
-
-/* Header Section */
-.app-header {
-  background: none; /* Removed gradient */
-  color: #333;
-  text-align: center;
-  padding: 30px 20px 10px;
-}
-
-.header-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.header-icon i {
-  font-size: 48px;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-}
-
-.app-header h1 {
-  font-size: 2.5rem;
-  margin: 0 0 10px;
-}
-
-.app-header p {
-  font-size: 1.1rem;
-  opacity: 0.8;
-  margin: 0;
-}
-
