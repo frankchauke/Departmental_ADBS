@@ -105,9 +105,10 @@ body {
 /* Header Section */
 .app-header {
   background: none;
-  color: hsl(41, 88%, 75%);
+  color: #333333;
   text-align: center;
   padding: 10px 20px 0px;
+  background-color: hsl(35, 80%, 80%);
 }
 
 .header-content {
