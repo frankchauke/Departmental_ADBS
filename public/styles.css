@@ -21,7 +21,7 @@ body {
 }
 
 .sidebar.collapsed {
-  width: 60px;
+  width: 50px;
 }
 
 .sidebar-header {
@@ -89,8 +89,8 @@ body {
 }
 
 .main-content-wrapper {
-  margin-left: 160px;
-  width: calc(100% - 160px);
+  margin-left: 150px;
+  width: calc(100% - 150px);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -98,8 +98,8 @@ body {
 }
 
 .sidebar.collapsed ~ .main-content-wrapper {
-  margin-left: 50px;
-  width: calc(100% - 50px);
+  margin-left: 30px;
+  width: calc(100% - 30px);
 }
 
 /* Header Section */
@@ -197,19 +197,19 @@ button:hover {
 /* Responsive fix */
 @media (max-width: 600px) {
   .sidebar {
-    width: 60px;
+    width: 40px;
     height: 100%;
     position: fixed;
     z-index: 100;
   }
 
   .sidebar.collapsed {
-    width: 50px;
+    width: 40px;
   }
 
   .main-content-wrapper {
-    margin-left: 60px;
-    width: calc(100% - 60px);
+    margin-left: 50px;
+    width: calc(100% - 50px);
   }
 
   .form-container {
