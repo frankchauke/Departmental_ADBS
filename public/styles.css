@@ -7,7 +7,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 220px;
+  width: 160px;
   height: 100vh;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
@@ -89,8 +89,8 @@ body {
 }
 
 .main-content-wrapper {
-  margin-left: 220px;
-  width: calc(100% - 220px);
+  margin-left: 160px;
+  width: calc(100% - 160px);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -98,8 +98,8 @@ body {
 }
 
 .sidebar.collapsed ~ .main-content-wrapper {
-  margin-left: 60px;
-  width: calc(100% - 60px);
+  margin-left: 50px;
+  width: calc(100% - 50px);
 }
 
 /* Header Section */
@@ -204,7 +204,7 @@ button:hover {
   }
 
   .sidebar.collapsed {
-    width: 60px;
+    width: 50px;
   }
 
   .main-content-wrapper {
