@@ -1,8 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  display: flex; /* place sidebar and main together */
-  background: linear-gradient(to top, #fff5e6, #ffe3cc, #ffd1b3); /* Soft orange gradient */
+  display: flex;
+  background: linear-gradient(to top, #e0e7ff, #f3e8ff, #f5f3ff); /* Soft lavender/blue blend */
 }
 
 /* Sidebar Styles */
