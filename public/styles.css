@@ -48,3 +48,94 @@ button:hover {
   margin-top: 20px;
   color: green;
 }
+
+/* Layout Structure */
+.layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.toggle-btn {
+  padding: 10px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.nav-list li {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-list i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.sidebar.collapsed .nav-text {
+  display: none;
+}
+
+.sidebar.collapsed i {
+  margin-right: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f6f8;
+  padding: 20px;
+}
+
+/* Make sure form-container adapts */
+.form-container {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Responsive fix */
+@media (max-width: 600px) {
+  .sidebar {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+  }
+
+  .main-content {
+    margin-left: 60px;
+  }
+}

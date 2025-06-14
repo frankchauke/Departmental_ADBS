@@ -43,3 +43,7 @@ document.getElementById('dataForm').addEventListener('submit', async function(e)
     submitBtn.innerText = 'Submit';
   }
 });
+
+document.getElementById("toggleBtn").addEventListener("click", function () {
+  document.getElementById("sidebar").classList.toggle("collapsed");
+});
