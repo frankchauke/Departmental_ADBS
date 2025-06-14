@@ -112,8 +112,9 @@ body {
 
 .header-content {
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 5px auto;
 }
+
 
 .header-icon i {
   font-size: 48px;
