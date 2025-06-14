@@ -2,64 +2,55 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f8;
   margin: 0;
-  display: flex; /* place sidebar and main together */
+  display: flex;
 }
 
 /* Sidebar Styles */
 .sidebar {
   width: 220px;
-  height: 100vh; /* full height */
+  height: 100vh;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease;
-  position: fixed; /* stick to left */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* stay above other content */
+  z-index: 1000;
 }
 
 .sidebar.collapsed {
   width: 60px;
 }
 
-/* Sidebar header: logo icon + toggle button */
 .sidebar-header {
   display: flex;
   align-items: center;
-  gap: 10px; /* spacing between icon and hamburger */
+  justify-content: space-between;
+  gap: 10px;
   padding: 10px 15px;
-  /* optional: add border bottom or shadow for separation */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Storage icon as logo */
 .sidebar-header .logo {
-  font-size: 32px; /* size of storage icon */
-  color: white;    /* white for visibility */
+  font-size: 28px;
+  color: white;
   cursor: pointer;
-  flex-shrink: 0;  /* prevent shrinking */
+  flex-shrink: 0;
 }
 
-/* Hamburger menu toggle button */
-.sidebar-header .toggle-btn {
-  cursor: pointer;
-  font-size: 24px;
+.toggle-btn {
+  font-size: 22px;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto; /* push toggle to right */
-  flex-shrink: 0;
-  user-select: none;
-  /* Increase click area */
-  padding: 5px 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s;
 }
-.sidebar-header .toggle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .nav-list {
@@ -97,9 +88,8 @@ body {
   width: 100%;
 }
 
-/* Main content area next to fixed sidebar */
 .main-content-wrapper {
-  margin-left: 220px; /* same as sidebar width */
+  margin-left: 220px;
   width: calc(100% - 220px);
   display: flex;
   flex-direction: column;
@@ -107,7 +97,6 @@ body {
   transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
-/* Adjust main content when sidebar collapsed */
 .sidebar.collapsed ~ .main-content-wrapper {
   margin-left: 60px;
   width: calc(100% - 60px);
@@ -131,7 +120,7 @@ body {
   background: rgba(0, 0, 0, 0.05);
   padding: 20px;
   border-radius: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduced from 20px */
 }
 
 .app-header h1 {
@@ -150,9 +139,10 @@ body {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Move content up */
   background-color: #f4f6f8;
   padding: 5px;
+  margin-top: 10px; /* Slight spacing from header */
   overflow-y: auto;
 }
 
@@ -225,30 +215,4 @@ button:hover {
     padding: 15px 20px;
     max-width: 100%;
   }
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.sidebar-header .logo {
-  font-size: 28px;
-  color: white;
-}
-
-.toggle-btn {
-  font-size: 22px;
-  color: white;
-  cursor: pointer;
-  padding: 8px;
-  transition: background-color 0.3s;
-}
-
-.toggle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
 }
