@@ -1,52 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.form-container {
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-form label {
-  display: block;
-  margin: 10px 0 5px;
-}
-
-form input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
-  background-color: #0078d7;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #005fa3;
-}
-
-#output {
-  margin-top: 20px;
-  color: green;
+  margin: 0; /* reset default */
+  /* Removed flex layout from body because .layout handles it */
 }
 
 /* Layout Structure */
@@ -119,12 +75,53 @@ button:hover {
   align-items: center;
   background-color: #f4f6f8;
   padding: 20px;
+  overflow-y: auto; /* better if content grows */
 }
 
-/* Make sure form-container adapts */
+/* Form container */
 .form-container {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   width: 100%;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+#output {
+  margin-top: 20px;
+  color: green;
 }
 
 /* Responsive fix */
@@ -137,5 +134,11 @@ button:hover {
 
   .main-content {
     margin-left: 60px;
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 15px 20px;
+    max-width: 100%;
   }
 }
