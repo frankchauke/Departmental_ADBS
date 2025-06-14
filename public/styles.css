@@ -226,3 +226,29 @@ button:hover {
     max-width: 100%;
   }
 }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header .logo {
+  font-size: 28px;
+  color: white;
+}
+
+.toggle-btn {
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
